@@ -3,6 +3,7 @@
 
 """
   zabbix 微信告警短信
+  测试：python zabbix_wx.py user title text
 """
 
 import json
