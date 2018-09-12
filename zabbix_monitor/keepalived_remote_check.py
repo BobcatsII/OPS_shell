@@ -19,9 +19,9 @@ if ROLE=="ping":
 	sys.exit()
 
 if ROLE=="master":
-	command1="/usr/local/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(VIP,INTERFACE)
+	command1="/you/path/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(VIP,INTERFACE)
 	VIP_MAC=commands.getoutput(command1)
-	command2="/usr/local/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(LB_IP,INTERFACE)
+	command2="/you/path/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(LB_IP,INTERFACE)
 	LB_MAC=commands.getoutput(command2)
 	if VIP_MAC==LB_MAC:
 		print 0
@@ -29,9 +29,9 @@ if ROLE=="master":
 		print 1
 	
 elif ROLE=="backup":
-	command1="/usr/local/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(VIP,INTERFACE)
+	command1="/you/path/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(VIP,INTERFACE)
 	VIP_MAC=commands.getoutput(command1)
-	command2="/usr/local/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(LB_IP,INTERFACE)
+	command2="/you/path/zabbix/bin/zabbix_get -s %s -k system.hw.macaddr[%s,short]"%(LB_IP,INTERFACE)
 	LB_MAC=commands.getoutput(command2)
 	if VIP_MAC==LB_MAC:
 		print 1
