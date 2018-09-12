@@ -51,5 +51,3 @@ if __name__ == '__main__':
     access_token = msg.gettoken(msg.gettoken_url, msg.gettoken_content)
     print msg.send_message(msg.sendmsg_url,access_token,msg.main_content)
 
-
-
