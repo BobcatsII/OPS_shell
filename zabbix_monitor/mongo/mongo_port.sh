@@ -10,5 +10,5 @@ if [ -z "$host" ];then
         echo 0
     fi
 else
-    echo "rs.printSlaveReplicationInfo();" |/usr/local/mongodb/bin/mongo --quiet $host:27017/admin -uroot -pdYKAMc9K |grep -A 2 $host |awk '{if(NR == 3) print $1}'
+    echo "rs.printSlaveReplicationInfo();" |/you/path/mongodb/bin/mongo --quiet $host:27017/admin -uroot -pPasswd |grep -A 2 $host |awk '{if(NR == 3) print $1}'
 fi
