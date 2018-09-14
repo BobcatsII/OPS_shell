@@ -4,6 +4,10 @@
 import MySQLdb
 import sys
 
+"""
+    mysql主从监控
+"""
+
 class check_mysql_repl():
     def __init__(self):
         self.dbhost = '172.17.0.165'
