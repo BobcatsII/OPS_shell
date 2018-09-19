@@ -58,11 +58,11 @@ if os.system(tar_command) == 0:
     print '\nResult:'
     print 'Successful backup to', backup_file
     size = os.path.getsize(backup_file)
-    sender = 'clr@monitor.bcp'
+    sender = 'ccc@monitor.bp'
     #receiver = ['sss@happy.cn', 'ddd@happy.cn']
     receiver = ['sss@happy.cn']
     message = MIMEText("%s 配置文件，\n%s 开始备份，\n%s 备份结束，\n文件名称：%s，\n文件大小：%.2fK" % (thd_pa, date1, date2, backup_file, (size/1024.0)) ,  'plain', 'utf-8')
-    message['From'] = "clr@monitor.bcp"
+    message['From'] = "ccc@monitor.bp"
     #message['To'] = "sss@happy.cn,ddd@happy.cn"
     message['To'] = "sss@happy.cn"
     subject = ("%s %s 备份完成" % (sec_pa, thd_pa))
@@ -78,11 +78,11 @@ if os.system(tar_command) == 0:
 else:
     print '\nResult:'
     print 'Backup failed'
-    sender = 'clr@monitor.bcp'
+    sender = 'ccc@monitor.bp'
     #receiver = ['sss@happy.cn', 'ddd@happy.cn']
     receiver = ['sss@happy.cn']
     message = MIMEText("%s 配置文件, \n%s 开始备份，\n%s 备份结束" % (thd_pa, date1, date2), 'plain', 'utf-8')
-    message['From'] = "clr@monitor.bcp"
+    message['From'] = "ccc@monitor.bp"
     #message['To'] = "sss@happy.cn,ddd@happy.cn"
     message['To'] = "sss@happy.cn"
     subject = ("%s %s 备份失败" % (sec_pa, thd_pa))
