@@ -1,5 +1,5 @@
 #!/bin/bash
-#本脚本与(/opt/scripts/ss/mp4.sh)脚本关联，脚本提取当前时间的上一小时的点播的502日志切割并写入文档；
+#本脚本与(/opt/scripts/ssss/mp4.sh)脚本关联，脚本提取当前时间的上一小时的点播的502日志切割并写入文档；
 #本脚本去重|排序提取文档内容，并替换视频路径为存储路径，备份原视频文件(/data/backup/当天时间)，执行mp4box工具修复视频文件；
 #查看实时日志路径为：tail -f /tmp/js_502_acc.log (可观察是否报错)
 #查看执行mp4box工具日志: cat js_mp4repair.log (输出格式)
@@ -13,8 +13,8 @@ day=${d:8:2}
 hour=${d:11:2}
 
 tmpdir="/tmp/3gp"
-bakdir="/data/vodbackup/${year}${month}${day}/3gprepair_${hour}"
-redir="/data/Logs_Backup/repair502/${month}/${day}"
+bakdir="/data/vodbakup/${year}${month}${day}/3gprepair_${hour}"
+redir="/data/logbakup/repair502/${month}/${day}"
 
 if [ ! -d "$bakdir" ];then
     mkdir -p $bakdir 
