@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 #eg:
 #                                           host          port   channel        m3u8  ts
-#python /opt/scripts/other/linan/srstest.py 172.18.250.23 11080  TVcibnteadj01  20    1000
+#python /opt/scripts/srstest.py 172.18.20.23 11080  TVcdj01  20    1000
 #取到完整ts的时间：/tmp/srs_getcomplete_tstime.txt
 #获取到相关频道的m3u8日志文件：/tmp/srs_m3u8_{channel}.log
 #指定m3u8个数的日志文件：/tmp/srs_m3u8_{channel}_ol.log
@@ -32,7 +32,7 @@ def exeTime(func):
         return newFunc
 
 def m3u8log():
-     os.popen("tail -1000000 /data/log/tysx/access.log|grep {0}|grep '\.m3u8'  >  /tmp/srs_m3u8_{1}.log".format(channel,channel))
+     os.popen("tail -1000000 /data/log/access.log|grep {0}|grep '\.m3u8'  >  /tmp/srs_m3u8_{1}.log".format(channel,channel))
      raw = os.popen("cat /tmp/srs_m3u8_{0}.log|wc -l".format(channel))
      a = raw.read().strip('\n')
      if m3u8_number < int(a):
