@@ -72,34 +72,34 @@ function set_py () {
 
 function set_lib () {
     if [ "$mod" == "live" ] || [ "$mod" == "vod" ];then
-	   	lib_url="http://$src_ip/deploy/hc/$mod/$libpkg"
-	   	cd $pkg;wget -q $lib_url
-	   	tar zxf "$pkg/$libpkg" -C "$pkg"
-	   	rm -rf $libpkg
-	   	cd $pkg/libiconv-1*/
-	   	yum install -y -q gcc-c++
+	lib_url="http://$src_ip/deploy/hc/$mod/$libpkg"
+	cd $pkg;wget -q $lib_url
+	tar zxf "$pkg/$libpkg" -C "$pkg"
+	rm -rf $libpkg
+	cd $pkg/libiconv-1*/
+	yum install -y -q gcc-c++
        	if [ $? == '0' ];then
        	   	./configure
        	   	if [ $? == '0' ];then
            		make -s
            		if [ $? == '0' ];then
-               		make -s install
-               		if [ $? == '0' ];then
+               		    make -s install
+               		    if [ $? == '0' ];then
                    		echo -e "\033[1;32m libiconv-1.15 安装完成! \033[0m"
-               		else
+               		    else
                    		echo -e "\033[1;31m libiconv-1.15 安装出错! \033[0m"
-               		fi
+               		    fi
            		else
-               		echo -e "\033[1;31m make 进程错误! \033[0m"
+               		    echo -e "\033[1;31m make 进程错误! \033[0m"
            		fi
-			else
-				echo -e "\033[1;31m libiconv 编译异常! \033[0m"
-			fi 
+		else
+		    echo -e "\033[1;31m libiconv 编译异常! \033[0m"
+		fi 
        	else
-           	echo -e "\033[1;31m GCC-C++ 安装出错! \033[0m"
+            echo -e "\033[1;31m GCC-C++ 安装出错! \033[0m"
        	fi
-	    echo "/usr/local/lib" >> "/etc/ld.so.conf"
-	    ldconfig
+	echo "/usr/local/lib" >> "/etc/ld.so.conf"
+	ldconfig
     fi
 }
 
@@ -207,15 +207,15 @@ function salt() {
 }
 
 function firewall() {
-	if [ -f "/etc/sysconfig/iptables" ];then
-		sed -i '8i\ ' /etc/sysconfig/iptables
-		sed -i '9i\#hc_@yzl' /etc/sysconfig/iptables
-		sed -i '10i\-A INPUT -p tcp --dport 10000:60000 -j ACCEPT' /etc/sysconfig/iptables
-		sed -i '11i\ ' /etc/sysconfig/iptables
-		echo -e "\033[1;33m 防火强配置已添加完成，请确认无误后手动重启iptables! \033[0m"
-	else
-		echo -e "\033[1;31m Iptables 未安装！ \033[0m"
-	fi
+    if [ -f "/etc/sysconfig/iptables" ];then
+        sed -i '8i\ ' /etc/sysconfig/iptables
+	sed -i '9i\#hc_@yzl' /etc/sysconfig/iptables
+	sed -i '10i\-A INPUT -p tcp --dport 10000:60000 -j ACCEPT' /etc/sysconfig/iptables
+	sed -i '11i\ ' /etc/sysconfig/iptables
+	echo -e "\033[1;33m 防火强配置已添加完成，请确认无误后手动重启iptables! \033[0m"
+    else
+	echo -e "\033[1;31m Iptables 未安装！ \033[0m"
+    fi
 }
 
 read -p "部署服务类型(live or vod):" mod
