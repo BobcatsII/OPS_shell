@@ -10,7 +10,7 @@ import datetime
    #crontab -l
    * * * * *  python /your/path/count_tel.py
    #每日清理一次
-   0 1 * * *  bash /your/path/clean_leaderlog.sh
+   0 1 * * *  find /your/logs_path/leaders -mindepth 2 -maxdepth 2 -mtime +2 -type f -exec rm -rf {} \;
 """
 
 
