@@ -41,7 +41,7 @@ def main():
         }
     filedir = "/data/Logs_Backup/leaders"
     now = datetime.datetime.now().strftime('%Y%m%d%H%M')
-    accesslog = "/data/log/tysx/access.log"
+    accesslog = "/data/log/tx/access.log"
     count_log(leaders_telph, filedir, now, accesslog)
 
 if __name__ == "__main__":
