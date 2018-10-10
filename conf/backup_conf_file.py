@@ -3,7 +3,8 @@
 
 """
   例：将远程应用的配置文件拉到本地备份目录，下面将192.168.10.31上nginx的配置，拉到本地备份目录
-      sudo python conf_dump.py  /usr/local/openresty/nginx/conf  192.168.10.31  nginx
+                                   备份目录                    备份服务器    备份应用名称
+      python conf_dump.py  /usr/local/openresty/nginx/conf   192.168.10.31   nginx
 """
 
 import sys        
