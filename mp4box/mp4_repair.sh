@@ -31,7 +31,7 @@ fi
 
 jsfile="${redir}/js_${hour}_502.txt"
 if [ ! -f "$jsfile" ];then
-    echo "${now} 程序退出！！${jsfile} 文件不存在或没有生成!!请先执行172.18.1.70上的脚本: /opt/scripts/linan/mp4.sh 生成文件！谢谢！" >> /tmp/js_502_acc.log
+    echo "${now} 程序退出！！${jsfile} 文件不存在或没有生成!!请先执行172.18.1.70上的脚本: /opt/spts/lll/mp4.sh 生成文件！谢谢！" >> /tmp/js_502_acc.log
     exit 1
 fi
 
